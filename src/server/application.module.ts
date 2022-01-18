@@ -1,9 +1,11 @@
-import { Module } from '@nestjs/common';
+import { CacheModule, Module } from '@nestjs/common';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
 import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { BlogController } from './blog/blog.controller';
 import { BlogService } from './blog/blog.service';
+import * as redisStore from 'cache-manager-redis-store';
 
 @Module({
   imports: [
@@ -13,8 +15,15 @@ import { BlogService } from './blog/blog.service';
         // conf: { useFilesystemPublicRoutes: false },
       }),
     ),
+    CacheModule.register({
+      store: redisStore,
+      host: 'redis-server',
+      port: 6379,
+      ttl: 10, // sec
+      max: 100, // maximum number of items in cache
+    }),
   ],
   controllers: [AppController, BlogController],
-  providers: [BlogService],
+  providers: [AppService, BlogService],
 })
 export class AppModule {}
