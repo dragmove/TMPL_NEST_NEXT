@@ -17,8 +17,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @Render('main')
-  public async root(@Query('name') name?: string) {
+  @Render('Index')
+  public async index(@Query('name') name?: string) {
     // TODO: redis cache 테스트 완료. 정리 필요
     // Ref:
     // https://docs.nestjs.com/techniques/caching#interacting-with-the-cache-store

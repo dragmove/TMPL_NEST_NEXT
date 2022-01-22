@@ -5,7 +5,7 @@ interface Props {
   query: { name?: string; foo?: number };
 }
 
-const Main: NextPage<Props> = ({ query }) => {
+const Index: NextPage<Props> = ({ query }) => {
   const greetName = query.name ? query.name : 'World';
   const foo = query.foo || 'no foo';
 
@@ -27,4 +27,4 @@ export async function getServerSideProps(ctx: NextPageContext): Promise<{
   return { props: { query } };
 }
 
-export default Main;
+export default Index;
