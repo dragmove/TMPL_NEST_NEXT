@@ -5,7 +5,7 @@ interface Props {
   query: { name?: string; foo?: number };
 }
 
-const Home: NextPage<Props> = ({ query }) => {
+const Main: NextPage<Props> = ({ query }) => {
   const greetName = query.name ? query.name : 'World';
   const foo = query.foo || 'no foo';
 
@@ -20,8 +20,6 @@ const Home: NextPage<Props> = ({ query }) => {
 export async function getServerSideProps(ctx: NextPageContext): Promise<{
   props: any;
 }> {
-  console.log('ctx.query :', ctx.query);
-
   const query = {
     name: ctx.query.name || null,
     foo: ctx.query.foo || null,
@@ -29,4 +27,4 @@ export async function getServerSideProps(ctx: NextPageContext): Promise<{
   return { props: { query } };
 }
 
-export default Home;
+export default Main;

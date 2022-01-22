@@ -1,5 +1,7 @@
 FROM node:16-alpine
 
+LABEL maintainer="dragmove <dragmove@gmail.com>"
+
 WORKDIR "/app"
 
 COPY package*.json ./

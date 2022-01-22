@@ -10,6 +10,12 @@
 $ npm install
 ```
 
+## Test
+
+```bash
+$ npm run test
+```
+
 ## Running the app
 
 ```bash

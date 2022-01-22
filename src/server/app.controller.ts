@@ -16,9 +16,9 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Render('home')
   @Get()
-  public async index(@Query('name') name?: string) {
+  @Render('main')
+  public async root(@Query('name') name?: string) {
     // TODO: redis cache 테스트 완료. 정리 필요
     // Ref:
     // https://docs.nestjs.com/techniques/caching#interacting-with-the-cache-store
@@ -28,15 +28,7 @@ export class AppController {
     // https://wanago.io/2021/01/04/api-nestjs-in-memory-cache-performance/
     // https://wanago.io/2021/01/11/nestjs-cache-redis-node-js-cluster/
     const foo = await this.appService.getFromCache('foo');
-    console.log('[index] foo :', foo);
-
     return { name, foo };
-  }
-
-  @Render('about')
-  @Get('/about')
-  public about() {
-    return {};
   }
 
   /*

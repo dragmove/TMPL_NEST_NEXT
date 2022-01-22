@@ -14,6 +14,10 @@ import * as redisStore from 'cache-manager-redis-store';
         dev: process.env.NODE_ENV !== 'production',
         // conf: { useFilesystemPublicRoutes: false },
       }),
+      // FIXME:
+      // {
+      //   viewsDir: null,
+      // },
     ),
     CacheModule.register({
       store: redisStore,

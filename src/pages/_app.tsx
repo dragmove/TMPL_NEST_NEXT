@@ -1,18 +1,26 @@
-import { FC } from 'react';
-import type { AppProps /*, AppContext */ } from 'next/app';
-import Sidebar from '../client/components/sidebar';
+import { SERVICE_NAME } from '@shared/constants/common';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { FC, ReactElement } from 'react';
 
-const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
+const App: FC<AppProps> = (props) => {
+  const { Component, pageProps } = props;
+  const Layout = EmptyLayout;
+
   return (
-    <div style={{ display: 'flex', maxWidth: 1100 }}>
-      <div style={{ flexBasis: '30%', margin: 25 }}>
-        <Sidebar />
-      </div>
-      <div style={{ flexBasis: '70%', margin: 25 }}>
+    <>
+      <Head>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{SERVICE_NAME}</title>
+      </Head>
+      <Layout>
         <Component {...pageProps} />
-      </div>
-    </div>
+      </Layout>
+    </>
   );
 };
 
-export default MyApp;
+export default App;
+
+const EmptyLayout = ({ children }): ReactElement => <>{children}</>;
