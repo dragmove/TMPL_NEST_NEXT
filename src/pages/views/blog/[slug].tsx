@@ -1,14 +1,9 @@
 import { NextPage, NextPageContext } from 'next';
-import { IPost } from '../../../server/common/types';
+import { Post } from '../../../server/common/types';
 import { BlogService } from '../../../server/blog/blog.service';
 
 interface Props {
-  post: IPost;
-  source: string;
-}
-
-interface SSProps {
-  post: IPost | null;
+  post: Post | null;
   source: string;
 }
 
@@ -28,17 +23,11 @@ const Post: NextPage<Props> = ({ post: { title, content }, source }) => {
   );
 };
 
-// When the page was rendered server side the ctx.query will contain the data
-// returned by the controller's method. When the page was rendered on the client
-// side, the ctx.query will only contain the query params for the url.
-//
-// To better understand why this happens, reference the following next
-// documentation about how getServerSideProps only runs on the server:
-// https://nextjs.org/docs/basic-features/data-fetching#only-runs-on-server-side
+// Ref: https://nextjs.org/docs/basic-features/data-fetching#only-runs-on-server-side
 export function getServerSideProps(ctx: NextPageContext) {
   const post = ctx.query.post || null;
 
-  const props: SSProps = {
+  const props: Props = {
     source: 'server',
     post: post as any,
   };
@@ -50,8 +39,7 @@ export function getServerSideProps(ctx: NextPageContext) {
   }
 
   if (props.post === null) {
-    // https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
-    // return object with notFound equal to true for 404 error
+    // Ref: https://nextjs.org/blog/next-10#notfound-support
     return {
       notFound: true,
     };

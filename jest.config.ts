@@ -9,6 +9,8 @@ const config: Config.InitialOptions = {
   testRegex: '/__tests__/.*\\.(test|spec)\\.(t|j)sx?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   moduleNameMapper: {
+    '^@client/(.*)': '<rootDir>/src/client/$1',
+    '^@server/(.*)': '<rootDir>/src/server/$1',
     '^@shared/(.*)': '<rootDir>/src/shared/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],

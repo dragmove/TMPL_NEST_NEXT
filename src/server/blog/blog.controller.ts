@@ -21,7 +21,6 @@ export class BlogController {
   @Get(':slug')
   public get(@Param('slug') slug: string) {
     const post = this.service.find(slug);
-
     if (post === null) {
       throw new NotFoundException();
     }

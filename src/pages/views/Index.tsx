@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Index: NextPage<Props> = ({ query }) => {
-  const greetName = query.name ? query.name : 'World';
+  const greetName = query.name ? query.name : 'world';
   const foo = query.foo || 'no foo';
 
   return (

@@ -16,8 +16,8 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
   @Render('Index')
+  @Get()
   public async index(@Query('name') name?: string) {
     // TODO: redis cache 테스트 완료. 정리 필요
     // Ref:

@@ -1,11 +1,11 @@
 import { CacheModule, Module } from '@nestjs/common';
+import * as redisStore from 'cache-manager-redis-store';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BlogController } from './blog/blog.controller';
 import { BlogService } from './blog/blog.service';
-import * as redisStore from 'cache-manager-redis-store';
 
 @Module({
   imports: [
@@ -14,10 +14,6 @@ import * as redisStore from 'cache-manager-redis-store';
         dev: process.env.NODE_ENV !== 'production',
         // conf: { useFilesystemPublicRoutes: false },
       }),
-      // FIXME:
-      // {
-      //   viewsDir: null,
-      // },
     ),
     CacheModule.register({
       store: redisStore,

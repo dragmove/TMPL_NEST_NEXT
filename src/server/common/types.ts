@@ -1,5 +1,5 @@
-export interface IPost {
-  title: string,
-  slug: string,
-  content: string[]
+export interface Post {
+  title: string;
+  slug: string;
+  content: string[];
 }

@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { IPost } from '../common/types';
+import { Post } from '../common/types';
 
-const POSTS: Record<string, IPost> = {
+const POSTS: Record<string, Post> = {
   'first-post': {
     title: 'First Post!',
     slug: 'first-post',
@@ -21,11 +21,11 @@ const POSTS: Record<string, IPost> = {
 };
 
 export class BlogService {
-  public all(): IPost[] {
+  public all(): Post[] {
     return Object.values(POSTS);
   }
 
-  public find(slug: string): IPost | null {
+  public find(slug: string): Post | null {
     return POSTS[slug] || null;
   }
 }
