@@ -4,8 +4,6 @@ import { RenderModule } from 'nest-next';
 import Next from 'next';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { BlogController } from './blog/blog.controller';
-import { BlogService } from './blog/blog.service';
 
 @Module({
   imports: [
@@ -23,7 +21,7 @@ import { BlogService } from './blog/blog.service';
       max: 100, // maximum number of items in cache
     }),
   ],
-  controllers: [AppController, BlogController],
-  providers: [AppService, BlogService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
