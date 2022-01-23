@@ -19,7 +19,9 @@ $ npm run test
 ## Running the app
 
 ```bash
-# development
+# development env
+# run a command below, and connect http://localhost:9000
 $ docker-compose up
+
 
 ```
