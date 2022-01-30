@@ -1,5 +1,6 @@
 import { NextPage, NextPageContext } from 'next';
 import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 
 interface Props {
   query: { name?: string };
@@ -9,9 +10,9 @@ const Index: NextPage<Props> = ({ query }): ReactElement => {
   const name = query.name ? query.name : 'foo';
 
   return (
-    <div>
-      <p>Hello, {name}!</p>
-    </div>
+    <Wrap>
+      <div>Hello, {name}!</div>
+    </Wrap>
   );
 };
 
@@ -25,3 +26,7 @@ export async function getServerSideProps(ctx: NextPageContext): Promise<{
 }
 
 export default Index;
+
+const Wrap = styled.div`
+  background-color: #f00;
+`;
