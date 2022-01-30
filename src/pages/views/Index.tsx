@@ -1,18 +1,16 @@
-import * as React from 'react';
 import { NextPage, NextPageContext } from 'next';
+import React, { ReactElement } from 'react';
 
 interface Props {
-  query: { name?: string; foo?: number };
+  query: { name?: string };
 }
 
-const Index: NextPage<Props> = ({ query }) => {
-  const greetName = query.name ? query.name : 'world';
-  const foo = query.foo || 'no foo';
+const Index: NextPage<Props> = ({ query }): ReactElement => {
+  const name = query.name ? query.name : 'foo';
 
   return (
     <div>
-      <div>Hello, {greetName}!</div>
-      <div>foo: {foo}!</div>
+      <p>Hello, {name}!</p>
     </div>
   );
 };
@@ -22,7 +20,6 @@ export async function getServerSideProps(ctx: NextPageContext): Promise<{
 }> {
   const query = {
     name: ctx.query.name || null,
-    foo: ctx.query.foo || null,
   };
   return { props: { query } };
 }
