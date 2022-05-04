@@ -37,13 +37,13 @@ module.exports = {
   rules: {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'no-unused-vars': 0,
+    'no-unused-vars': 'warn',
     '@typescript-eslint/no-unused-vars': [
-      'error',
+      'warn',
       { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
     ],
-    '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/ban-ts-ignore': 0,
+    '@typescript-eslint/no-empty-interface': 'warn',
+    '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/explicit-function-return-type': [
       'warn',
       {
@@ -52,6 +52,6 @@ module.exports = {
         allowHigherOrderFunctions: true,
       },
     ],
-    '@typescript-eslint/no-floating-promises': 1,
+    '@typescript-eslint/no-floating-promises': 'warn',
   },
 };

@@ -3,11 +3,10 @@
     // "target": "esnext",
     // "module": "esnext",
     // "jsx": "preserve",
-    // "strict": false,
     "pretty": true,
     // "noImplicitAny": true,
     // "alwaysStrict": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noImplicitThis": true,
     // "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -37,6 +36,6 @@
     "moduleResolution": "node",
     "jsx": "preserve"
   },
-  "include": ["./src/client/**/*", "./src/pages/**/*"],
+  "include": ["next-env.d.ts", "./src/client/**/*", "./src/pages/**/*"],
   "exclude": ["node_modules", "**/*.test.ts", "**/*.spec.ts"]
 }

@@ -1,6 +1,7 @@
 {
   "name": "tmpl-nest-next",
   "version": "0.0.1",
+  "description": "A Template Application based on NestJS with Next.js",
   "main": "",
   "license": "MIT",
   "scripts": {

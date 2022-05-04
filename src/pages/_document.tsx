@@ -1,9 +1,17 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+// Ref: https://nextjs.org/docs/advanced-features/custom-document
+
+import Document, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 import { ReactElement } from 'react';
 import { ServerStyleSheet } from 'styled-components';
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+class AppDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
@@ -42,4 +50,4 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument;
+export default AppDocument;
